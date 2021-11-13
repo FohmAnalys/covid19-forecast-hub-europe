@@ -27,15 +27,13 @@ models <- covidHubUtils::get_model_metadata(source = "local_hub_repo",
 
 # Create function for rendering report for each model
 render_report <- function(model) {
-	rmarkdown::render(here::here("code", "reports", "models",
-                               "model-report.Rmd"),
+	rmarkdown::render(here::here("code", "reports", "model-report.Rmd"),
                     params = list(model = model,
                                   report_date = report_date,
                                   plot_weeks = 1,
                                   data_weeks = 10),
                     output_format = "md_document",
-                    output_file = paste0("model-report-",
-                                        model, ".md"),
+                    output_file = paste0("model-report-", model, ".md"),
 	                  output_options = list(lib_dir = here::here("html", "libs")),
                     envir = new.env())
 }

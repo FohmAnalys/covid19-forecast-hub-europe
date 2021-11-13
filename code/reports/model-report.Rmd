@@ -43,29 +43,29 @@ palette <- RColorBrewer::brewer.pal(3, "Set1")[2:1]
 ```
 
 <!--- Fetch various values from the config file --->
-```{r get-config-vars, child = "../rmdchunks/get-config-vars.Rmd"}
+```{r get-config-vars, child = "./rmdchunks/get-config-vars.Rmd"}
 ```
 
-```{r insert-dropdowns, child = "../rmdchunks/insert-dropdowns.Rmd"}
+```{r insert-dropdowns, child = "./rmdchunks/insert-dropdowns.Rmd"}
 ```
 
 # `r paste0('European COVID-19 Forecast Hub Evaluation Report for ', params$model)` 
 
 <!--- Chunk to load forecast and truth data and consolidate it in a single df called data. Usually called as the first chunk. This step is cached so make sure to delete the cached files if necessary when testing. -->
-```{r load-data, child = "../rmdchunks/load-data.Rmd", fig.path = "report-model-files/"}
+```{r load-data, child = "./rmdchunks/load-data.Rmd", fig.path = "report-model-files/"}
 ```
 
 <!--- Load forecast scores -->
-```{r load-scores, child = "../rmdchunks/load-scores.Rmd"}
+```{r load-scores, child = "./rmdchunks/load-scores.Rmd"}
 ```
 
 <!--- Chunk to filter data and scores to keep only the relevant locations, horizons and target varaibles. Is is separated from the global scoring step
 so that we can cache the loading and scoring step.. -->
-```{r filter-forecasts, child = "../rmdchunks/filter-forecasts.Rmd"}
+```{r filter-forecasts, child = "./rmdchunks/filter-forecasts.Rmd"}
 ```
 
 <!--- Visualise the latest forecasts. -->
-```{r plot-forecasts, child = "../rmdchunks/plot-forecasts.Rmd"}
+```{r plot-forecasts, child = "./rmdchunks/plot-forecasts.Rmd"}
 ```
 
 <!-- Focus on 10 week scores. -->
@@ -75,7 +75,7 @@ table <- table %>%
 ```
 
 <!-- Visualisation of model scores. -->
-```{r model-scores, child = "../rmdchunks/model-scores.Rmd"}
+```{r model-scores, child = "./rmdchunks/model-scores.Rmd"}
 ```
 
 <!--- 
@@ -83,5 +83,5 @@ table <- table %>%
 - Plot of coverage by target and horizon over time
 - PIT histograms
 --->
-```{r forecast-calibration, child = "../rmdchunks/forecast-calibration.Rmd"}
+```{r forecast-calibration, child = "./rmdchunks/forecast-calibration.Rmd"}
 ```

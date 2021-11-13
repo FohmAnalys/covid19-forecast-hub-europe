@@ -44,38 +44,38 @@ facetting_var <- rlang::quo(model)
 ```
 
 <!--- Fetch various values from the config file --->
-```{r get-config-vars, child = "../rmdchunks/get-config-vars.Rmd"}
+```{r get-config-vars, child = "./rmdchunks/get-config-vars.Rmd"}
 ```
 
-```{r insert-dropdowns, child = "../rmdchunks/insert-dropdowns.Rmd"}
+```{r insert-dropdowns, child = "./rmdchunks/insert-dropdowns.Rmd"}
 ```
 
 # `r paste0('European COVID-19 Forecast Hub Evaluation Report', ifelse(params$location_name == 'Overall', '', paste(' for', params$location_name)))`
 
 <!--- Chunk to load forecast and truth data and consolidate it in a single df called data. Usually called as the first chunk. This step is cached so make sure to delete the cached files if necessary when testing. -->
-```{r load-data, child = "../rmdchunks/load-data.Rmd", fig.path = "report-country-files/"}
+```{r load-data, child = "./rmdchunks/load-data.Rmd", fig.path = "report-country-files/"}
 ```
 
 <!--- Load forecast scores -->
-```{r load-scores, child = "../rmdchunks/load-scores.Rmd"}
+```{r load-scores, child = "./rmdchunks/load-scores.Rmd"}
 ```
 
 <!--- Chunk to filter data and scores to keep only the relevant locations, horizons and target varaibles. Is is separated from the global scoring step
 so that we can cache the loading and scoring step.. -->
-```{r filter-forecasts, child = "../rmdchunks/filter-forecasts.Rmd"}
+```{r filter-forecasts, child = "./rmdchunks/filter-forecasts.Rmd"}
 ```
 
 <!--- Visualisation of forecasts (cases or deaths across time) for multiple
 forecasting dates. --->
-```{r forecast-vis, child = if (include_forecast_plot && params$location_name != "Overall") "../rmdchunks/plot-forecasts.Rmd"}
+```{r forecast-vis, child = if (include_forecast_plot && params$location_name != "Overall") "./rmdchunks/plot-forecasts.Rmd"}
 ```
 
 <!--- Table comparing the performance of each model. The table is followed by
 an explanation text detailing the meaning of each column/index. --->
-```{r model-ranking, child = if (include_ranking) "../rmdchunks/ranking.Rmd", results = 'asis'}
+```{r model-ranking, child = if (include_ranking) "./rmdchunks/ranking.Rmd", results = 'asis'}
 ```
 
 <!--- Footer about GitHub repository and where to find data for individual 
 models --->
-```{r footer, child = "../rmdchunks/evaluation-footer.Rmd"}
+```{r footer, child = "./rmdchunks/evaluation-footer.Rmd"}
 ```

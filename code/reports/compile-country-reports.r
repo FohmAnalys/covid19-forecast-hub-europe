@@ -14,14 +14,12 @@ report_date <- today()
 wday(report_date) <- get_hub_config("forecast_week_day")
 
 for (country in c("Overall", hub_locations_ecdc$location_name)) {
-  rmarkdown::render(here::here("code", "reports", "country",
-                               "country-report.Rmd"),
+  rmarkdown::render(here::here("code", "reports", "country-report.Rmd"),
                     output_format = "md_document",
                     params = list(location_name = country,
                                   report_date = report_date,
                                   plot_weeks = 4),
-                    output_file = paste0("country-report-",
-                                        country, ".md"),
+                    output_file = paste0("country-report-", country, ".md"),
                     output_options = list(lib_dir = here::here("html", "libs")),
                     envir = new.env())
 }
