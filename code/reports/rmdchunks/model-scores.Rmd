@@ -66,10 +66,10 @@ for (variable in names(target_variables)) {
     message(variable, ", ", horizon_string)
     cat("\n\n####", horizon_string, "\n\n")
     cat("\n\n##### Overall predictive performance\n\n")
-    cat(rmdpartials::partial(here::here("code", "reports", "rmdchunks", "model-score-table.Rmd")))
+    cat(rmdpartials::partial(file.path("rmdchunks", "model-score-table.Rmd")))
     cat("\n\n</details>")
     cat("\n\n##### Performance over time\n\n")
-    cat(rmdpartials::partial(here::here("code", "reports", "rmdchunks", "model-score-plots.Rmd")))
+    cat(rmdpartials::partial(file.path("rmdchunks", "model-score-plots.Rmd")))
   }
 }
 ```
