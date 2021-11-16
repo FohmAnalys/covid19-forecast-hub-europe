@@ -20,6 +20,6 @@ for (country in c("Overall", hub_locations_ecdc$location_name)) {
                                   report_date = report_date,
                                   plot_weeks = 4),
                     output_file = paste0("country-report-", country, ".md"),
-                    output_options = list(lib_dir = here::here("html", "libs")),
+                    output_options = list(variant = "markdown"),
                     envir = new.env())
 }

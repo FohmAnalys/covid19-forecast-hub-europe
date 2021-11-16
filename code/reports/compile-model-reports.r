@@ -34,7 +34,7 @@ render_report <- function(model) {
                                   data_weeks = 10),
                     output_format = "md_document",
                     output_file = paste0("model-report-", model, ".md"),
-	                  output_options = list(lib_dir = here::here("html", "libs")),
+	                  output_options = list(variant = "markdown"),
                     envir = new.env())
 }
 
